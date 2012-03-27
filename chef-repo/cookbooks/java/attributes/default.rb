@@ -35,11 +35,11 @@ end
 
 # jdk6 attributes
 # x86_64
-default['java']['jdk']['6']['x86_64']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/6u31-b04/jdk-6u31-linux-x64.bin?AuthParam=1332878590_c25fac2661a671ccf05b757b5f3c132f'
+default['java']['jdk']['6']['x86_64']['url'] = 'http://69.55.204.50/jdk-6u31-linux-x64.bin'
 default['java']['jdk']['6']['x86_64']['checksum'] = '0219d4feeedb186e5081ab092dfcda20c290fde5463f9a707e12fd63897fd342'
 
 # i586
-default['java']['jdk']['6']['i586']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/6u31-b04/jdk-6u31-linux-i586.bin?AuthParam=1332878611_70f8ec3eab7b841d2504fc8ff06d99b7'
+default['java']['jdk']['6']['i586']['url'] = 'http://69.55.204.50/jdk-6u31-linux-i586.bin'
 default['java']['jdk']['6']['i586']['checksum'] = '60fdd4083373db919334500b8050b326d45d78703aa2d403eda48cfa5621702b'
 
 # jdk7 attributes
