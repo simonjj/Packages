@@ -20,5 +20,7 @@ repos.each do |repo|
       revision branch
       destination "/home/zenoss/install-sources"
       action :sync
+      user "zenoss"
+      group "zenoss"
     end
 end
