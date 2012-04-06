@@ -9,7 +9,7 @@
 
 product = node['zenoss_build']['build_flavor']
 branch = node['zenoss_build']['branch']
-repos = node[['zenoss_build']['repos']]
+repos = node['zenoss_build']['repos']
 
 
 
