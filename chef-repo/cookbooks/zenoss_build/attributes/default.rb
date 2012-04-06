@@ -1,6 +1,6 @@
 #
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
-# Cookbook Name:: java
+# Cookbook Name:: zenoss_build
 # Attributes:: default 
 #
 # Copyright 2010, Opscode, Inc.
@@ -20,6 +20,7 @@
 # default zenoss to build (core-public, core-private, enterprise, etc.)
 default['zenoss_build']['build_flavor'] = "core-public"
 default['zenoss_build']['branch'] = 'HEAD'
+default['zenoss_build']['zenhome'] = '/opt/zenoss'
 
 case default['zenoss_build']['build_flavor']
 when "core-public"
