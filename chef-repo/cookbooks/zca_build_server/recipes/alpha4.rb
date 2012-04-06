@@ -95,7 +95,6 @@ else
 end
 
 
-
 #Create Zenoss User
 user "zenoss" do 
 	comment "zenoss user"
@@ -111,3 +110,8 @@ template "/home/zenoss/.bashrc" do
   group "zenoss"
 end
 #Copy a template .bash_profile file so set environment variables
+
+
+#checkout code from repo
+include_recipe "zenoss_build"
+
