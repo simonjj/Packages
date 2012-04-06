@@ -14,10 +14,11 @@ repos = node[['zenoss_build']['repos']]
 
 
 repos.each do |repo|
-subversion "zenoss repo" do
-  Chef::Log.info("checking out #{repo}")
-  repository repo
-  revision branch
-  destination "/home/zenoss/install-sources"
-  action :sync
+    subversion "zenoss repo" do
+      Chef::Log.info("checking out #{repo}")
+      repository repo
+      revision branch
+      destination "/home/zenoss/install-sources"
+      action :sync
+    end
 end
