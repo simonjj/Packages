@@ -9,7 +9,8 @@
 # this is currently not platform specific 
 # TODO: make this work on all platforms
 old_mysql_packages = %w{ mysql-client mysql-client-5.1 mysql-client-core-5.1 mysql-common mysql-server mysql-server-5.1 mysql-server-core-5.1 mysql-connector-odbc mysql-libs }
-install_packages.each do |pkg|
+
+old_mysql_packages.each do |pkg|
   package pkg do
     action :purge
   end
