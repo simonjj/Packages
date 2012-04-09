@@ -47,16 +47,16 @@ if platform?("redhat", "centos", "fedora", "scientific", "amazon")
 		default['zca_build_server']['build_packages'] += ["liberation-fonts", "protobuf-devel"]
 		#Chef::Log.debug("TODO: Figure out what to do with protobuf-c package #{node['platform']} #{node['platform_version']}")
 	end
-    
+end  
 
 # ubuntu build package set
-elsif platform?("ubuntu")
+if platform?("ubuntu")
     Chef::Log.info("BUILDING A UBUNTU BUILD BOX")
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['ubuntu']
-
+end
 
 # suse build package set
-elsif platform?(%w{ suse })
+if platform?(%w{ suse })
     #TODO support them 
     Chef::Log.warn("Suse build servers are currently unsupported")
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['suse']
