@@ -18,19 +18,19 @@
 # limitations under the License.
 
 # packages that are required on every platform
-default['zca_build_server']['packages']['base'] = \ 
+default['zca_build_server']['packages']['base'] =  
     %w{tk unixODBC bc unzip binutils gcc make swig autoconf wget }
     
 # additional packages that are required for ubuntu
-default['zca_build_server']['packages']['ubuntu'] = \
+default['zca_build_server']['packages']['ubuntu'] = 
     %w{ libdbi-perl libsnmp-base libsnmp15 snmp snmpd libsnmp-dev libgmp3-dev build-essential libxml2-dev libreadline6-dev libpango1.0-dev libgcj10 ccache gcc-4.4 libxslt1-dev libcairo2-dev libglib2.0-dev libevent-dev ldap-utils libldap2-dev libsasl2-dev }
 
 # additional packages that are required for redhat and derivatives
-default['zca_build_server']['packages']['redhat'] = \
+default['zca_build_server']['packages']['redhat'] = 
     %w{ perl-DBI rpm-build net-snmp net-snmp-utils gmp libgomp libxslt gcc-c++ libxml2-devel pango-devel}
     
 #TODO: pick SUSE packages
-default['zca_build_server']['packages']['suse'] = \
+default['zca_build_server']['packages']['suse'] = 
     %w{ }
 
 
