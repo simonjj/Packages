@@ -36,6 +36,7 @@ default['zca_build_server']['packages']['suse'] =
 
 # redhat build package set
 if platform?(%w{ redhat centos fedora scientific amazon })
+    Chef::Log.info("BUILDING A REDHAT BUILD BOX")
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['redhat']
     
  	#These Packages failed on Centos 5.7, so handle them as such
@@ -50,6 +51,7 @@ if platform?(%w{ redhat centos fedora scientific amazon })
 
 # ubuntu build package set
 elsif platform?(%w{ ubuntu })
+    Chef::Log.info("BUILDING A UBUNTU BUILD BOX")
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['ubuntu']
 
 
