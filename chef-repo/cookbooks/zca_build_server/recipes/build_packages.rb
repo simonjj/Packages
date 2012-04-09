@@ -9,7 +9,7 @@
 
 install_packages = node['zca_build_server']['build_packages']
 
-
+Chef::Log.info("installing the following packages: #{install_packages}")
 
 #rhel specific packages
 if platform?(%w{ redhat centos fedora suse scientific amazon })
