@@ -20,8 +20,9 @@ if platform?(%w{ redhat centos fedora suse scientific amazon })
 	end
 
     #We need some stuff from epel & remi
+    #take out remi since mysql comes from mysql.com for now
 	include_recipe "yum::epel"
-	include_recipe "yum::remi"
+	#include_recipe "yum::remi"
 	
 elsif platform?(%w{ ubuntu })
     # anything specific to ubuntu would go here
