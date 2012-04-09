@@ -35,7 +35,7 @@ default['zca_build_server']['packages']['suse'] =
 
 
 # redhat build package set
-if platform?("redhat", "centos", "fedora", "scientific", "amazon" })
+if platform?("redhat", "centos", "fedora", "scientific", "amazon")
     Chef::Log.info("BUILDING A REDHAT BUILD BOX")
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['redhat']
     
