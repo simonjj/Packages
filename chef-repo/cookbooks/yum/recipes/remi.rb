@@ -31,7 +31,7 @@ end
 
 rpm_package "remi-release" do
   source "#{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm"
-  only_if {::File.exists?("#{Chef::Config[:file_cache_path]}/remi-release-#{epel}.rpm")}
+  only_if {::File.exists?("#{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm")}
   action :nothing
 end
 
