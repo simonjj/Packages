@@ -23,6 +23,7 @@ remi  = node['yum']['remi_release']
 # Instead, we get to remote_file then rpm_package.
 
 remote_file "#{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm" do
+  Chef::Log.info("fetching into #{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm to install soon")
   source "http://rpms.famillecollet.com/enterprise/remi-release-#{remi}.rpm"
   #source "http://download.fedoraproject.org/pub/epel/#{major}/i386/epel-release-#{epel}.noarch.rpm"
   not_if "rpm -qa | egrep -qx 'remi-release-#{remi}'"
@@ -30,10 +31,12 @@ remote_file "#{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm" do
 end
 
 rpm_package "remi-release" do
+  Chef::Log.info("installing remi rpm now...")
   source "#{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm"
   only_if {::File.exists?("#{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm")}
   action :nothing
 end
+
 
 file "remi-release-cleanup" do
   path "#{Chef::Config[:file_cache_path]}/remi-release-#{remi}.rpm"
