@@ -33,6 +33,8 @@ else
   default['java']['java_home'] = "/usr/lib/jvm/default-java"
 end
 
+default['java']['java_bin'] = default['java']['java_home'] + "/bin"
+
 # jdk6 attributes
 # x86_64
 default['java']['jdk']['6']['x86_64']['url'] = 'http://69.55.204.50/jdk-6u31-linux-x64.bin'
