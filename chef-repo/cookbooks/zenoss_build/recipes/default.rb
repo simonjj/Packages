@@ -13,20 +13,6 @@ repos = node['zenoss_build']['repos']
 zenhome = node['zenoss_build']['zenhome']
 
 
-# source checkout
-repos.each do |repo|
-    subversion "zenoss repo" do
-      Chef::Log.info("checking out #{repo}")
-      repository repo
-      revision branch
-      destination "/home/zenoss/install-sources"
-      action :sync
-      user "zenoss"
-      group "zenoss"
-    end
-end
-
-
 #Create Zenoss User
 user "zenoss" do 
 	comment "zenoss user"
@@ -56,3 +42,18 @@ directory zenhome do
   mode "0755"
   action :create
 end
+
+
+# source checkout
+repos.each do |repo|
+    subversion "zenoss repo" do
+      Chef::Log.info("checking out #{repo}")
+      user "zenoss"
+      group "zenoss"
+      repository repo
+      revision branch
+      destination "/home/zenoss/install-sources"
+      action :sync
+    end
+end
+
