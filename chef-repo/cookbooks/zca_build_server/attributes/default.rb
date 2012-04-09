@@ -52,9 +52,14 @@ if platform?(%w{ redhat centos fedora scientific amazon })
 elsif platform?(%w{ ubuntu })
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['ubuntu']
 
+
 # suse build package set
 elsif platform?(%w{ suse })
     #TODO support them 
     Chef::Log.warn("Suse build servers are currently unsupported")
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['suse']
 end
+
+
+Chef::Log.info("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+Chef::Log.info("determined the following package set: #{default['zca_build_server']['build_packages']}")
