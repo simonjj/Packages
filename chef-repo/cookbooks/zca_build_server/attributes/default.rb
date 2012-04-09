@@ -62,4 +62,5 @@ end
 
 
 Chef::Log.info("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+Chef::Log.info("#{node[:platform]}")
 Chef::Log.info("determined the following package set: #{default['zca_build_server']['build_packages']}")
