@@ -27,7 +27,7 @@ elsif platform?(%w{ ubuntu })
     # anything specific to ubuntu would go here
     # TODO: prolly need to add mysql 5.5 source here
 	
-wnd
+end
 
 
 # install the packages now
