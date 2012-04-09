@@ -38,9 +38,13 @@ end
 
 #Setup users .bashrc
 template "/home/zenoss/.bashrc" do
+  Chef::Log.info("================================ JAVA_BIN: " + node['java']['java_bin'])
   source "zenoss_bashrc.erb"
   owner "zenoss"
   group "zenoss"
+  variables({
+    :java_bin => node['java']['java_bin']
+  })
 end
 #Copy a template .bash_profile file so set environment variables
 
