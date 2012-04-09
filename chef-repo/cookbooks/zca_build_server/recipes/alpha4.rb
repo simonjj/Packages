@@ -14,7 +14,7 @@ service "iptables" do
 end
 
 # let's get the base build packages for whatever platform we're on
-include_recipe "build_packages"
+include_recipe "zca_build_server::build_packages"
 
 
 #Subversion
