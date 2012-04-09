@@ -4,6 +4,8 @@
 #
 ################################
 
+include_recipe "mysql::cleanup_mysql"
+
 
 #Download MySQL RPMs
 arch="#{node['kernel']['machine']}"
