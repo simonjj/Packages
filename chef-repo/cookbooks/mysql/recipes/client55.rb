@@ -18,7 +18,7 @@ if platform?(%w{ redhat centos fedora suse scientific amazon })
 		remote_file "/tmp/#{rpm_file}" do
 		  source "http://www.mysql.com/get/Downloads/MySQL-5.5/#{rpm_file}/from/http://mysql.llarian.net/"
 		  #Don't Download if its already installed
-		  not_if "rpm -qa | egrep -qi 'MySQL-client-5.5'"
+		  not_if "rpm -qa | egrep -qi 'MySQL-shared-5.5'"
 		  notifies :install, "rpm_package[#{rpm_file}]", :immediately
 		  #If we already downloaded it, don't download it again. Unlikely to be useful in the real world, but a time saver during dev/testing
 		  action :create_if_missing
