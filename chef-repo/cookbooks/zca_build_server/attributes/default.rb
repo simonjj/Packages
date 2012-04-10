@@ -30,13 +30,12 @@ default['zca_build_server']['packages']['redhat'] =
     %w{ perl-DBI rpm-build net-snmp net-snmp-utils gmp libgomp libxslt gcc-c++ libxml2-devel pango-devel liberation-mono-fonts liberation-sans-fonts liberation-serif-fonts}
     
 #TODO: pick SUSE packages
-default['zca_build_server']['packages']['suse'] = 
-    %w{ }
+default['zca_build_server']['packages']['suse'] = %w{ }
 
 
-# redhat build package set
-if platform?("redhat", "centos", "fedora", "scientific", "amazon")
-    Chef::Log.info("BUILDING A REDHAT BUILD BOX")
+
+case platform
+when "centos","redhat","fedora","scientific","amazon"
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['redhat']
     
  	#These Packages failed on Centos 5.7, so handle them as such
@@ -47,19 +46,22 @@ if platform?("redhat", "centos", "fedora", "scientific", "amazon")
 		default['zca_build_server']['build_packages'] += ["liberation-fonts", "protobuf-devel"]
 		#Chef::Log.debug("TODO: Figure out what to do with protobuf-c package #{node['platform']} #{node['platform_version']}")
 	end
-end  
+
 
 # ubuntu build package set
-if platform?("ubuntu")
-    Chef::Log.info("BUILDING A UBUNTU BUILD BOX")
+when "ubuntu"
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['ubuntu']
-end
+
 
 # suse build package set
-if platform?(%w{ suse })
+when "suse"
     #TODO support them 
     Chef::Log.warn("Suse build servers are currently unsupported")
     default['zca_build_server']['build_packages'] = default['zca_build_server']['packages']['base'] + default['zca_build_server']['packages']['suse']
+
+
+else
+    Chef::Log.warn("Platform #{platform} is currently unsupported")
 end
 
 
