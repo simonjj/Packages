@@ -24,7 +24,6 @@ end
 
 #Setup users .bashrc
 template "/home/zenoss/.bashrc" do
-  Chef::Log.info("================================ JAVA_BIN: " + node['java']['java_bin'])
   source "zenoss_bashrc.erb"
   owner "zenoss"
   group "zenoss"
@@ -41,6 +40,7 @@ directory zenhome do
   group "zenoss"
   mode "0755"
   action :create
+  recursive true
 end
 
 
