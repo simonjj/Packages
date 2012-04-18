@@ -37,7 +37,7 @@ elsif platform?(%w{ ubuntu})
     # adding the mysql 5.5 ubuntu repo
     Chef::Log.info("adding nathan's ppa for #{node['lsb']['codename']}")
     # add the Nginx PPA; grab key from keyserver
-    apt_repository "mysql" do
+    apt_repository "mysql" do	
       uri "http://ppa.launchpad.net/nathan-renniewaldock/ppa/ubuntu"
       distribution node['lsb']['codename']
       components ["main"]
